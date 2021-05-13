@@ -12,7 +12,6 @@ class Quaternion:
     Se toma:
     q=w+xi+yj+zj=[w,a]
     q=cos(fi/2)+sin(fi/2)*[x,y,z]
-    
     """
     def __init__(self,q=np.array([1,0,0,0]),unitary=True):
         self.q=q
@@ -27,8 +26,6 @@ class Quaternion:
                          [q[2],q[3],q[0],-q[1]],
                          [q[3],-q[2],q[1],q[0]]])
 
-
-
     def is_unit(self):
         norm=self.norm()
         if norm!=1.0:
@@ -39,8 +36,6 @@ class Quaternion:
 
             self.q=self.q*(1/norm)
             return 
-         
-
 
     def conj(self):
         cq=-self.q
@@ -116,8 +111,7 @@ class Quaternion:
          
             t3 = +2.0 * (w * z + x * y)
             t4 = +1.0 - 2.0 * (y * y + z * z)
-            yaw_z = math.atan2(t3, t4)
-         
+            yaw_z = math.atan2(t3, t4)        
             return roll_x, pitch_y, yaw_z # in radians
     
     def euler_to_quaternion(self,r):
